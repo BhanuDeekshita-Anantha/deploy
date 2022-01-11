@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+		function validate(){
+             var firstname=document.getElementById("bname").value;
+             var birth=document.getElementById("dob").value;
+             var bemail=document.getElementById("email").value;
+             var bmobile=document.getElementById("mobile").value;
+             var bpwd=document.getElementById("pwd").value;
+             var cpwd=document.getElementById("cpwd").value;
+             var text=document.getElementById("skill").value;
+             var charactersleft=120-text.length;
+             document.getElementById("count").innerHTML="charactersleft";
+             var checkname=/^[a-zA-Z ]+$/;
+             var checkmail=/^[a-z0-9.]+@[a-z]+\.[a-z]{2,3}$/;
+             var checkmobile=/^[0-9]{10}$/;
+             var checkpwd=/^[a-zA-Z0-9]{8}$/;
+             if(firstname==""){
+					alert("please check your name")
+					return false;
+			}
+			if(!firstname.match(checkname)){
+				alert("name must contain only alphabtes")
+				return false;
+		    }
+		    if(birth==""){
+		        alert("check your dateofbirth")
+		        return false;
+		    }
+		    if(bemail==""){
+		    	alert("check your email field");
+		    	return false;
+		    }
+		    if(!bemail.match(checkmail)){
+				alert("enter correct mail address");
+				return false;
+			}
+			if(bmobile==""){
+				alert("Please enter mobile number");
+				return false;
+			}
+			if(!bmobile.match(checkmobile)){
+				alert("check the number count");
+				return false;
+			}
+			if(bpwd==""){
+				alert("please enter your password");
+				return false;
+			}
+			if(cpwd==""){
+				alert("enter confirm password");
+				return false;
+			}
+			if(!cpwd.match(checkpwd)){
+				alert("Re-enter your confirm password");
+				return false;
+			}
+			if(text==""){
+				alert("the text must have 120 characters only");
+				return false;
+			}
+		    return true;
+		}  
+	</script>
+    <style type="text/css">
+		body{
+	     	padding-top: 5%;
+	     	background: #2980B9;
+			background: linear-gradient(to right, #FFFFFF, #6DD5FA, #2980B9); 			
+	     }
+	     input{
+	     	width:13%;
+	     	padding:0.5% 2%;
+	     	margin-left:auto;
+	     }
+	     .mystyle{
+	     	width:5%;
+	     }
+	     .mystyle-file{
+	     	width: 15%;
+	     	/*border: 1px solid black;*/
+	     	/*background-color: white;*/
+	     }
+	     .data{
+
+	     }
+	</style> 
+</head>
+<body>
+    <!-- <h1>Registration Page</h1></div> --> 
+  <form onsubmit="return validate()">
+  	<div class="data">
+   	<p><input id="bname" type="text" placeholder="Enter Your Name"/></p>
+   	<p><input id="dob" type="date"/></p>
+   	<p><input id="edudetails" type="text" placeholder="Enter Educational Details"/></p>
+   	<p>
+   		<input id="gender" class="mystyle" type="radio"/><span id="male">Male</span>
+   	  	<input id="gender" class="mystyle" type="radio"/><span id="female">Female</span>
+   	</p>
+   	<p><input id="email" type="text" placeholder="Enter Your Email"/></p>
+   	<p><input id="mobile" type="text" placeholder="Enter Your Number"/></p>
+    <p><input id="pwd" type="text" placeholder="Password"/></p>
+    <p><input id="cpwd" type="text" placeholder="Confirm Password"/></p>
+    <p><input id="file" class="mystyle-file" type="file"/></p>
+    <textarea maxlength="120" id="skill"></textarea><span id="count"></span><br/><br/>
+   	<button>Submit</button><br/><br/>
+   </div>
+   </form>
+</body>
+</html>
+
